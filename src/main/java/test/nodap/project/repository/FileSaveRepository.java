@@ -6,7 +6,7 @@ import java.io.File;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import project.service.SaveFilesService;
+import test.nodap.project.service.SaveFilesService;
 
 @Component
 public class FileSaveRepository implements SaveFilesService {

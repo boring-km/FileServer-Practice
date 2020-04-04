@@ -14,13 +14,15 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import javax.servlet.Filter;
 import java.nio.charset.Charset;
 
+
+
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-    }
+    }/*
     @Bean
     public HttpMessageConverter<String> responseBodyConverter() {
         return new StringHttpMessageConverter(Charset.forName("UTF-8"));
@@ -32,5 +34,5 @@ public class Application {
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
         return characterEncodingFilter;
-    }
+    }*/
 }
