@@ -165,7 +165,7 @@
             for(var i = 0; i < uploadFileList.length; i++){
                 formData.append('files', fileList[uploadFileList[i]]);
             }
-            
+            // url: https://fileserver-maven-yutfh.run.goorm.io/dragupload
             $.ajax({
                 url:"http://localhost:8080/dragupload",
                 data:formData,

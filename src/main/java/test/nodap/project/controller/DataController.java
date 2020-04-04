@@ -5,18 +5,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import test.nodap.project.service.FileLoadService;
+import test.nodap.project.service.FileSaveService;
 
 import java.util.*;
-
-import test.nodap.project.service.SaveFilesService;
 
 
 @RestController
 public class DataController {
     
     @Autowired
-    SaveFilesService save_file_service;
-    
+    FileSaveService save_file_service;
+
+    @Autowired
+    FileLoadService load_file_service;
+
     @GetMapping("/data")
     public String what(){
         return "test Data";
@@ -28,13 +31,10 @@ public class DataController {
     // 파일 삭제
     // 파일 다운로드
     // 파일 업로드
-    @PostMapping("/upload")
-    public String upload(MultipartFile[] files) {
-        // 출처: https://preamtree.tistory.com/58 [Preamtree의 행복로그]
-        String test = files[0].getContentType();
-        return test;
-    }
-    
+
+    @GetMapping("/list")
+
+
     @PostMapping("/dragupload")
     public Map<String,Object> dragupload(MultipartFile[] files) {
         return save_file_service.saveFiles(files);

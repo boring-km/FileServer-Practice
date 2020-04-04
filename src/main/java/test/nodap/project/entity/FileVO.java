@@ -20,8 +20,16 @@ public class FileVO {
     private @Column(name = "f_no") int f_no;
     
     public @Column(name = "b_no") int b_no;
+    public @Column(name = "file_origin_name") String fileOriginName;
+    public @Column(name = "file_url") String fileUrl;
     public @Column(name = "filename") String filename;
-    public @Column(name = "fileOriginName") String fileOriginName;
-    public @Column(name = "fileUrl") String fileUrl;
+
+    public FileVO(){}
+    @Builder
+    public FileVO(String fileOriginName, String fileUrl, String filename) {
+        this.fileOriginName = fileOriginName;
+        this.fileUrl = fileUrl;
+        this.filename = filename;
+    }
     
 }

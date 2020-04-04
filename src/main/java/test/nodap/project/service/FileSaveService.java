@@ -1,25 +1,31 @@
-package test.nodap.project.repository;
+package test.nodap.project.service;
 
 import java.util.*;
 import java.io.File;
 
-import org.springframework.stereotype.Component;
+import com.google.common.collect.ImmutableList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import test.nodap.project.service.SaveFilesService;
+import test.nodap.project.entity.FileVO;
+import test.nodap.project.repository.FileRepository;
 
-@Component
-public class FileSaveRepository implements SaveFilesService {
+@Service
+public class FileSaveService {
     // Dependency Injection
-    
+
+    @Autowired
+    FileRepository fileRepository;
+
     // final String PATH = "/workspace/FileBackUp/test";
     final String PATH = "d:/test";
+
     List<Map> fileList = new ArrayList<>();
+
     Map<String, String> map;
-    
-    
-    
-    @Override
+
+
     public Map<String, Object> saveFiles(MultipartFile[] files) {
 	    
         dirCheck(PATH); // 디렉토리가 없으면 추가
@@ -45,7 +51,10 @@ public class FileSaveRepository implements SaveFilesService {
             
             try {
                 file.transferTo(new File(fileFullPath)); // 파일 생성됨
-                
+
+                FileVO fileVO = new FileVO( "encrypted", org_fileName, fileFullPath);
+                fileRepository.save(fileVO);
+
                 map.put("originalFilename", org_fileName);
                 map.put("fileFullPath", fileFullPath);
                 fileList.add(map);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>파일 다운로드 목록</title>
+</head>
+<body>
+<!-- 리스트 불러오기 -->
+<table>
+    <thead>
+    <tr>
+        <th>파일 번호</th>
+        <th>암호화된 파일명</th>
+        <th>원래 파일명</th>
+        <th>파일 경로</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${test}"></td>
+        <td th:text="${test1}"></td>
+        <td th:text="${test2}"></td>
+        <td th:text="${test3}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<script>
+    $.test = 'test';
+</script>
+</html>
