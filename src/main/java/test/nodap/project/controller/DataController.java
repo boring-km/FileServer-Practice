@@ -10,7 +10,6 @@ import test.nodap.project.service.FileSaveService;
 
 import java.util.*;
 
-
 @RestController
 public class DataController {
     
@@ -32,10 +31,7 @@ public class DataController {
     // 파일 다운로드
     // 파일 업로드
 
-    @GetMapping("/list")
-
-
-    @PostMapping("/dragupload")
+    @PostMapping("/upload/dragupload")
     public Map<String,Object> dragupload(MultipartFile[] files) {
         return save_file_service.saveFiles(files);
     }
